@@ -1,3 +1,9 @@
+<?php
+include_once'bd.php';
+$gsent=$pdo->prepare('SELECT * FROM intrucciones WHERE ID_RECETA = 1');
+$gsent->execute();
+$res = $gsent->fetchALL();
+?>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -13,6 +19,10 @@
             <div class="p-2 bd-highlight"id="imagen"></div>
           </div>
     </div>
+    <h2>Pasos a seguir:</h2>
+    <?php foreach($res as $dato):?>
+        <h3><?php echo $dato['orden']," ", $dato['intruccion'] ?></h3>
+    <?php endforeach?>
     <script src="ajax.js"></script>
 </body>
 </html>
