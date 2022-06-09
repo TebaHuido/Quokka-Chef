@@ -1,6 +1,6 @@
 <?php
 include_once'bd.php';
-$gsent=$pdo->prepare('SELECT * FROM intrucciones WHERE ID_RECETA = 1');
+$gsent=$pdo->prepare('SELECT * FROM intrucciones WHERE ID_RECETA = 1 ORDER BY orden' );
 $gsent->execute();
 $res = $gsent->fetchALL();
 ?>
