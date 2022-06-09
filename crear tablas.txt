@@ -1,0 +1,31 @@
+CREATE TABLE Receta
+(
+  Nombre VARCHAR(60) NOT NULL,
+  ID_Receta INT NOT NULL AUTO_INCREMENT,
+  Tipo VARCHAR(20) NOT NULL,
+  Puntaje INT NOT NULL,
+  Autor VARCHAR(50) NOT NULL,
+  Tiempo FLOAT NOT NULL,
+  Med_tiempo VARCHAR(15) NOT NULL,
+  Porciones INT NOT NULL,
+  PRIMARY KEY (ID_Receta)
+);
+
+CREATE TABLE intrucciones
+(
+  intruccion text NOT NULL,
+  orden INT NOT NULL,
+  ID_Receta INT NOT NULL,
+  PRIMARY KEY (orden, ID_Receta),
+  FOREIGN KEY (ID_Receta) REFERENCES Receta(ID_Receta)
+);
+
+CREATE TABLE ingredientes
+(
+  ingredientes varchar(200) NOT NULL,
+  ID_Receta INT NOT NULL,
+  FOREIGN KEY (ID_Receta) REFERENCES Receta(ID_Receta)
+);
+INSERT INTO `receta` (`Nombre`, `ID_Receta`, `Tipo`, `Puntaje`, `Autor`, `Tiempo`, `Med_tiempo`, `Porciones`) VALUES ('Cafe Helado', NULL, 'Bebida fria', '3', 'Pilar Hernandez', '20', 'minutos', '4')
+
+INSERT INTO `ingredientes` (`ingredientes`, `ID_Receta`) VALUES ('2 espressos', '1'), ('2 tazas de leche entera, fría', '1'), ('2 cucharaditas de azúcar granulada (para la leche)', '1'), ('1 taza de helado de vainilla', '1'), ('1 taza de crema liquida para batir', '1'), ('1 cucharada de azucar granulada(para la crema chantilly)', '1'), ('mostacilla, marrasquino, opcional', '1')
