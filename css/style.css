@@ -1,0 +1,191 @@
+:root {
+    --fuenteHeading: 'PT Sans', sans-serif;
+    --fuenteParrafos: 'Open Sans', sans-serif;
+
+    --primario: #784D3C;
+    --gris: #e1e1e1;
+    --blanco: #ffffff;
+    --negro: #000000;
+}
+html {
+    box-sizing: border-box;
+    font-size: 62.5%;    
+}
+*, *:before, *:after {
+    box-sizing: inherit;
+}
+body {
+    font-family: var(--fuenteParrafos);
+    font-size: 1.6rem;
+    line-height: 2;
+}
+
+/** Globales **/
+.contenedor {
+    width: min(90%, 120rem);
+    margin: 0 auto;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4 {
+    font-family: var(--fuenteHeading);
+    line-height: 1.2;
+}
+h1 {
+    font-size: 4.8rem;
+}
+h2 {
+    font-size: 4rem;
+}
+h3 {
+    font-size: 3.2rem;
+}
+h4 {
+    font-size: 2.8rem;
+}
+img {
+    max-width: 100%;
+}
+/** Utilidades **/
+.no-margin {
+    margin: 0;
+}
+.no-padding {
+    padding: 0;
+}
+.centrar-texto {
+    text-align: center;
+}
+
+.barra {
+    padding-top: 4rem;
+}
+
+@media (min-width: 768px) {
+    .barra {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+
+@media (min-width: 768px) {
+    .navegacion {
+        display: flex;
+        gap: 2rem;
+    }
+}
+.navegacion__enlace {
+    display: block;
+    text-align: center;
+    font-size: 1.8rem;
+    color: var(--blanco);
+}
+
+@media (min-width: 768px) {
+    .contenido-principal {
+        display: grid;
+        grid-template-columns: 2fr 1fr;
+        column-gap: 4rem;
+    }
+}
+
+.entrada {
+    border-bottom: 1px solid var(--gris);
+    margin-bottom: 2rem;
+}
+.entrada:last-of-type {
+    border: none;
+    margin-bottom: 0;
+}
+.boton {
+    display: block;
+    font-family: var(--fuenteHeading);
+    color: var(--blanco);
+    text-align: center;
+    padding: 1rem 3rem;
+    font-size: 1.8rem;
+    text-transform: uppercase;
+    font-weight: 700;
+    margin-bottom: 2rem;
+    border: none;
+}
+
+@media (min-width: 768px) {
+    .boton {
+        display: inline-block;
+
+    }
+}
+.boton:hover {
+    cursor: pointer;
+}
+.boton--primario {
+    background-color: var(--negro);
+}
+.boton--secundario {
+    background-color: var(--primario);
+}
+
+
+
+.boton_p{
+    text-decoration:none ;
+    padding: 6px;
+    font-weight: 600;
+    font-size: 18px;
+    color: rgb(133, 111, 66);
+    border: 1px solid rgb(133, 111, 66);
+    background-color: rgba(247, 244, 240, 0.662);
+  }
+  
+  .barra{
+    padding-top: 3rem;
+    background-image: url(https://www.todofondos.net/wp-content/uploads/marble-iphone-wallpaper-de-preppy-wallpapers-marble-fancy-marble.-fondo-para-movil-de-marmol.jpg);
+    background-repeat: no-repeat;
+    background-size: cover;
+  
+  }
+  
+  body{
+      background-image: url(https://www.papelpintadoclasificado.com/62703-home_default/papel-pintado-boys-girls-6-355662.jpg);
+      background-repeat: no-repeat;
+      background-size: cover ;
+    }
+  
+  @media (min-width: 768px) {
+      .barra {
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
+      }
+  }
+  
+  @media (min-width: 768px) {
+      .navegacion {
+          display: flex;
+          gap: 2rem;
+      }
+  }
+  h1{
+    text-align: center;
+    color: rgb(133, 111, 66);
+  }
+  h2,h3,p{
+    color: rgb(133, 111, 66);
+    text-align: center;
+  }
+  .receta{
+    background-color: rgba(241, 228, 199, 0.699);
+  }
+  
+  .inicial{
+      padding-top: 75px;
+     /* background-color: rgba(241, 228, 199, 0.699);*/
+  }
+  .sideboard{
+     /* background-color:rgb(241, 228, 199);*/
+      padding-top: 80px;
+      width: 20%;
+  }
