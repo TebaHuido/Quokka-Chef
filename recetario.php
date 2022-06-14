@@ -1,14 +1,15 @@
 <?php
 include_once'bd.php';
-$gsent=$pdo->prepare('SELECT * FROM intrucciones WHERE ID_RECETA = 1 ORDER BY orden' );
-$gsent->execute();
-$intrucciones = $gsent->fetchALL();
-$gsent2=$pdo->prepare('SELECT * FROM ingredientes WHERE ID_RECETA = 1' );
-$gsent2->execute();
-$ingredientes = $gsent2->fetchALL();
-$gsent3=$pdo->prepare('SELECT * FROM receta WHERE ID_RECETA = 1' );
-$gsent3->execute();
-$receta = $gsent3->fetchALL()[0];
+    $gsent=$pdo->prepare('SELECT * FROM intrucciones WHERE ID_RECETA = '.$_GET['ID'].' ORDER BY orden' );
+    $gsent->execute();
+    $intrucciones = $gsent->fetchALL();
+    $gsent2=$pdo->prepare('SELECT * FROM ingredientes WHERE ID_RECETA = '.$_GET['ID'] );
+    $gsent2->execute();
+    $ingredientes = $gsent2->fetchALL();
+    $gsent3=$pdo->prepare('SELECT * FROM receta WHERE ID_RECETA = '.$_GET['ID'] );
+    $gsent3->execute();
+    $receta = $gsent3->fetchALL()[0];
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
