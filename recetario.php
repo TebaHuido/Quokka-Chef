@@ -19,11 +19,36 @@ include_once'bd.php';
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <link href="assets\dist\css\bootstrap.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
-    <h1><?php echo $receta['Nombre']?></h1>
-    <h3><?php echo "puntaje: ".$receta['Puntaje']. " tipo: ".$receta['Tipo'] ." tiempo: ".$receta['Tiempo']." ".$receta['Med_tiempo']." porciones: ".$receta['Porciones']. " autor: ".$receta['Autor'] ?></h3>
 
+    <nav class="barra text-center ">
+        <a class="navbar-brand d-flex justify-content-start" href="pagina principal.html" >
+            <img src="quokka2.png" width="250" >
+        </a>
+        <h1>Quokka Chef</h1>
+        <nav class="navegacion" style="text-align:center;">
+            <a href="nosotros.html" class="boton_p">Recetas</a>
+            <a href="cursos.html" class="boton_p">Ingreso</a>
+            <a href="contacto.html" class="boton_p">Contacto</a>
+        </nav>
+    </nav>
+
+
+    <h1><?php echo $receta['Nombre']?></h1>
+    <div class="d-flex justify-content-center">
+    <?php for($i=0;$i<$receta['Puntaje'];$i++){
+        echo '<img
+        src="Icon_Star_clip_art.svg"
+        height="40"
+        width="40" />';
+    }?></div>
+    <h3><?php echo "Tipo: ".$receta['Tipo'] ." Tiempo: ".$receta['Tiempo']." ".$receta['Med_tiempo']." Porciones: ".$receta['Porciones']. " Autor: ".$receta['Autor'] ?></h3>
+    </div>
     <h2>Ingredientes:</h2>
     <div class="input-group-prepend">
 
