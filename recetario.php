@@ -9,6 +9,9 @@ include_once'bd.php';
     $gsent3=$pdo->prepare('SELECT * FROM receta WHERE ID_RECETA = '.$_GET['ID'] );
     $gsent3->execute();
     $receta = $gsent3->fetchALL()[0];
+    $gsent4=$pdo->prepare('SELECT * FROM imagenes WHERE ID_RECETA = '.$_GET['ID']);
+    $gsent4->execute();
+    $imagenes = $gsent4->fetchALL();
 
 ?>
 <!DOCTYPE html>
@@ -67,9 +70,21 @@ include_once'bd.php';
 
     </div>
     <h2>Pasos a seguir:</h2>
+
+
     <?php foreach($intrucciones as $dato):?>
         <h3><?php echo $dato['orden'],". ", $dato['intruccion'].'<br><br>' ?></h3>
+        <?php foreach($imagenes as $dato2){
+             echo '<div class="d-flex justify-content-center">';
+            if($dato2['orden'] == $dato['orden']){
+               
+                echo '<img src="'.$dato2['direccion'].'.png" width="250" style="">';
+                
+            }
+            echo '</div>';
+        }
+        ?>
+        
     <?php endforeach?>
-    <script src="ajax.js"></script>
 </body>
 </html>
