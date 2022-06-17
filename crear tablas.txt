@@ -28,13 +28,14 @@ CREATE TABLE ingredientes
   ID_Receta INT NOT NULL,
   FOREIGN KEY (ID_Receta) REFERENCES Receta(ID_Receta)
 );
+
 CREATE TABLE imagenes
 (
   direccion varchar(200) NOT NULL,
   orden_interno INT NOT NULL,
   orden INT NOT NULL,
   ID_Receta INT NOT NULL,
-  PRIMARY KEY (orden, ID_Receta),
+  PRIMARY KEY (orden, ID_Receta,orden_interno),
   FOREIGN KEY (orden, ID_Receta) REFERENCES intrucciones(orden, ID_Receta)
 );
 
@@ -44,6 +45,8 @@ INSERT INTO `receta` (`Descripcion`,`Nombre`, `ID_Receta`, `Tipo`, `Puntaje`, `A
 INSERT INTO `ingredientes` (`ingredientes`, `ID_Receta`) VALUES ('2 espressos', '1'), ('2 tazas de leche entera, fría', '1'), ('2 cucharaditas de azúcar granulada (para la leche)', '1'), ('1 taza de helado de vainilla', '1'), ('1 taza de crema liquida para batir', '1'), ('1 cucharada de azucar granulada(para la crema chantilly)', '1'), ('mostacilla, marrasquino, opcional', '1')
 
 INSERT INTO `intrucciones` (`intruccion`, `orden`, `ID_Receta`) VALUES ('Lo primero es hacer los espressos y mezclarlos con la leche fría y el azúcar, probar, si les gusta mas dulce agregar mas azúcar, refrigerar, pero consideren que el helado es siempre dulce.', '1', '1'), ('Sacar el helado del congelador para que sea fácil de servir.', '2', '1'), ('Batir la crema a mano o con batidora, cuando se empiecen a hacer onditas, unos 2 minutos, agregar la cucharada de azúcar granulada y seguir batiendo hasta que la crema esta Chantilly y de picos suaves. Acuérdense que la crema les queda mejor si todo: el bol, paletas de la batidora y la misma crema están bien fríos.', '3', '1'), ('En vasos largos o copas servir 1/4 taza de helado de vainilla, agregar la leche con café fría hasta casi el borde del vaso, dejar 1 cm. libre.', '4', '1'), ('Agregar la crema chantilly.', '5', '1'), ('Servir de inmediato. Decorar con mostacillas y un marrasquino si se desea.', '6', '1')
+
+INSERT INTO `imagenes` (`direccion`, `orden_interno`, `orden`, `ID_Receta`) VALUES ('https://imgur.com/joJxOdN', '1', '1', '1'), ('https://imgur.com/l2DHW75', '2', '4', '1'), ('https://imgur.com/zIkzMKs', '3', '4', '1'), ('https://imgur.com/gSsvWpR', '4', '5', '1'), ('https://imgur.com/BvFpZdX', '5', '6', '1'), ('https://imgur.com/Yq6B5z0', '6', '6', '1')
 
 GRANT USAGE ON *.* TO `chefsito`@`localhost` IDENTIFIED BY PASSWORD '*8FFD25C934F4976F12C140D30049B3AF8B3ED1AC';
 
