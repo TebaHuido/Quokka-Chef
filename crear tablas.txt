@@ -51,4 +51,3 @@ INSERT INTO `imagenes` (`direccion`, `orden_interno`, `orden`, `ID_Receta`) VALU
 GRANT USAGE ON *.* TO `chefsito`@`localhost` IDENTIFIED BY PASSWORD '*8FFD25C934F4976F12C140D30049B3AF8B3ED1AC';
 
 GRANT SELECT ON `quokka\_chef`.* TO `chefsito`@`localhost`;
-
