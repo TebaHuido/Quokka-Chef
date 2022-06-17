@@ -145,7 +145,7 @@ img {
     background-image: url(https://www.todofondos.net/wp-content/uploads/marble-iphone-wallpaper-de-preppy-wallpapers-marble-fancy-marble.-fondo-para-movil-de-marmol.jpg);
     background-repeat: no-repeat;
     background-size: cover;
-  
+    image-orientation: flip;
   }
   
   body{
