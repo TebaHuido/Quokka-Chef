@@ -32,7 +32,9 @@ $topcito = $gsent5->fetchALL();
         var id
         function mandar(id){
             window.location.href = "recetario.php?ID=" + id;
-            console.log(id);
+        }
+        function mandar2(){
+            window.location.href = "index.php";
         }
     </script>
 </head>
@@ -43,10 +45,11 @@ $topcito = $gsent5->fetchALL();
             <a class="navbar-brand d-flex justify-content-start" href="index.php">
                 <img src="quokka marinero.png" width="250">
             </a>
-            <h1>Quokka Chef</h1>
+            <div onclick='mandar2()'><h1>Quokka Chef</h1></div>
+            
 
             <nav class="navegacion" style="text-align:center;">
-                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
+                <a href="index.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
                 <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
                 <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
@@ -64,8 +67,8 @@ $topcito = $gsent5->fetchALL();
                     <div class="container">
                         <?php foreach ($topcito as $dato):?>
                         <div class="row" style="border-style: double; height: 350px;">
-                            <div class="col-5" >
-                                <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="align-items: center;">
+                            <div class="col-5" style="display: flex;align-items: center;">
+                                <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="margin: auto;">
                             </div>
                             <div class="col-7">
                             <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
@@ -73,7 +76,10 @@ $topcito = $gsent5->fetchALL();
                                 <p class="card-text">Tipo: <?php echo $dato["Tipo"]?></p>
                                 <p class="card-text"><?php echo $dato["Tiempo"]." ".$dato["Med_tiempo"]?> </p>
                                 <p class="card-text">Porciones: <?php echo $dato["Porciones"]?> personas </p>
+                                <div style="display: flex;align-items: right;"><button type="button" class="boton_p btn btn-outline-warning" style="margin-left: auto" onclick='mandar(<?php echo $dato["ID_Receta"] ?> )'>Ir a Receta</button></div>
+
                             </div>
+                            
                         </div>
                         <br>
                         <?php endforeach?>
