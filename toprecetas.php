@@ -1,6 +1,6 @@
 <?php
 include_once'bd.php';
-$gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje limit 3;' );
+$gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
 $gsent5->execute();
 $topcito = $gsent5->fetchALL();
 ?>

@@ -1,3 +1,9 @@
+<?php
+include_once'bd.php';
+$gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
+$gsent5->execute();
+$topcito = $gsent5->fetchALL();
+?>
 <!DOCTYPE html>
 <html lang="en">
 
@@ -10,7 +16,7 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
         rel="stylesheet">
-    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
     <style>
         h1,
@@ -22,6 +28,13 @@
             font-weight: bold;
         }
     </style>
+        <script>
+        var id
+        function mandar(id){
+            window.location.href = "recetario.php?ID=" + id;
+            console.log(id);
+        }
+    </script>
 </head>
 
 <body>
@@ -53,17 +66,29 @@
 
             </div>
             <div class="col-4">
-                <div class="card">
-                    <img src="..." class="card-img-top" alt="...">
-                    <div class="card-body">
-                      <h5 class="card-title">Card title</h5>
-                      <p class="card-text">This is a wider card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.</p>
+                <?php foreach ($topcito as $dato):?>
+                    <div onclick='mandar(<?php echo $dato["ID_Receta"] ?> )' style="margin-bottom: 2rem">
+                        <div class="card">
+                            <img src="<?php echo $dato["Foto"].".png" ?>" class="card-img-top" alt="...">
+                            <div class="card-body">
+                                <h5 class="card-title"><?php echo $dato["Nombre"]?></h5>
+                                <p class="card-text"><?php echo $dato["Descripcion"]?></p>
+                            </div>
+                            <div class="card-footer">
+                                <small class="text-muted">
+                                    <div class="d-flex justify-content-center">
+                                        <?php for($i=0;$i<$dato['Puntaje'];$i++){
+                                            echo '<img
+                                            src="Icon_Star_clip_art.svg"
+                                            height="40"
+                                            width="40" />';
+                                        }?>
+                                    </div>
+                                </small>
+                            </div>
+                        </div>
                     </div>
-                    <div class="card-footer">
-                      <small class="text-muted">Last updated 3 mins ago</small>
-                    </div>
-                  </div>
-                <!-- aqui el top-->
+                <?php endforeach?>
             </div>
         </div>
     </div>
