@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset='utf-8'>
+    <meta http-equiv='X-UA-Compatible' content='IE=edge'>
+    <title>Page Title</title>
+    <meta name='viewport' content='width=device-width, initial-scale=1'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: bold;
+        }
+    </style>
+
+    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script src='./js/bootstrap.min.js'></script>
+    <script>
+        function mandar2(){
+            window.location.href = "index.php";
+        }
+    </script>
+
+</head>
+<script>
+    $(document).ready(function () {
+
+        $("#btn_agregar").click(function () {
+            var x = $("input:text[name=ingrediente]").val();
+            if (x != '') {
+                $("#tabla_body").append('<tr> <td><input name=micheckbox type= "checkbox"> </td> <td> ' + x + '</td>  </tr>');
+            }
+
+            $("input:text[name=ingrediente]").each(function () { this.value = '' });
+        });
+
+        $("#btn_borrarsel").click(function () {
+            $('#tabla_body tr').has('input[name="micheckbox"]:checked').empty()
+        });
+
+        $("#ocultar_tabla").click(function () {
+            $("#tabla_body").hide();
+            $("#tabla_head").css("background-color", "#83a5db");
+
+        });
+
+        $("#mostrar_tabla").click(function () {
+            $("#tabla_body").show();
+            $("#tabla_head").css("background-color", "transparent");
+        });
+
+        $("input").focus(function () {
+            $(this).css("background-color", "#83a5db");
+        });
+
+        $("input").blur(function () {
+            $(this).css("background-color", "#83dbb2");
+        });
+
+    });
+
+</script>
+<body>
+    <header class="text-center footer-style">
+        <nav class="barra">
+            <a class="navbar-brand d-flex justify-content-start" href="index.php">
+                <img src="quokka marinero.png" width="250">
+            </a>
+            <div onclick='mandar2()'><h1>Quokka Chef</h1></div>
+
+            <nav class="navegacion" style="text-align:center;">
+                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
+                <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
+            </nav>
+        </nav>
+    </header>
+
+    <div class="container" style="font-size: 15px">
+        <div class="row">
+            <div class="col-md" >
+                <br>
+                <label for="nombre">nombre de la receta </label>
+                <input class="rounded-pill" id="nombre" placeholder="Nombre" type="text" name="nombre">
+                <br><br>
+                <label for="tipo">tipo de receta:</label>
+                <select class="rounded-pill" id="tipo" name="tipo">
+                    <option value="rapida">rapida</option>
+                    <option value="postre">postre</option>
+                    <option value="sopa">sopa</option>
+                    <option value="entrada">entrada</option>
+                </select>
+                <br><br>
+                <label for="ingrediente"> </label>
+                <input class="rounded-pill" id="ingrediente" placeholder="ingrediente" type="text" name="ingrediente">
+                <br><br>
+                <button class="boton_p btn btn-outline-warning rounded-pill" id="btn_agregar" type="submit" style="font-size: large"> Agregar</button>
+                <button class="boton_p btn btn-outline-warning rounded-pill" id="btn_borrarsel" type="submit"  style="font-size: large"> Borrar seleccion </button>
+                <br><br>
+                <table>
+                    <thead id="tabla_head">
+                        <tr>
+                            <td width="150px"> Seleccion </td>
+                            <td width="150px"> ingrediente </td>
+                        </tr>
+                    </thead>
+                    <tbody id="tabla_body">
+                    </tbody>
+                    <tfoot>
+                        <td><button class="boton_p btn btn-outline-warning btn-lg rounded-pill" id="ocultar_tabla" type="submit" style="font-size: large"> ocultar tabla </button></td>
+                        <td><button class="boton_p btn btn-outline-warning btn-lg rounded-pill" id="mostrar_tabla" type="submit" style="font-size: large"> mostrar tabla </button></td>
+                    </tfoot>
+                </table>
+            </div>
+            <div class="col-sm">
+                <br><br>
+                <h1>Escribe tu receta</h1>
+                <textarea name="receta" rows="10" cols="60" placeholder="Pon aqui tu receta"
+                    style="resize: none"></textarea>
+            </div>
+
+        </div>
+    </div>
+
+
+
+
+    <footer>
+        los datos de la cosa de abajo
+    </footer>
+</body>
+
+</html>
