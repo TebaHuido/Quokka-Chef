@@ -54,14 +54,21 @@ $topcito = $gsent5->fetchALL();
     </header>
     <div class="container" style="margin-top: 1rem;">
         <div class="row">
-            <div class="col-8" style="border-style: none solid none none">
+            <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
                 <div class="receta " style="border-style: double">
                     <h2> Recetas faciles de Aprender </h2>
                     <p> Aprende de los expertos con las mejores recetas y consejos</p>
                 </div>
                 <br>
                 <div >
-
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-3">
+                                <img src="quokka marinero.png" alt="">
+                            </div>
+                            <div class="col-9"></div>
+                        </div>
+                    </div>
                 </div>
 
             </div>
