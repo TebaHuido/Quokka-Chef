@@ -63,10 +63,11 @@ $topcito = $gsent5->fetchALL();
                 <div >
                     <div class="container">
                         <div class="row">
-                            <div class="col-3">
-                                <img src="quokka marinero.png" alt="">
+                            <div class="col-5">
+                                <img src="https://imgur.com/Yq6B5z0.png" alt="" style="height:150px; max-width:300px;">
+                                <img src="https://imgur.com/lZIBnLa.png" alt="" style="height:150px; max-width:300px;">
                             </div>
-                            <div class="col-9"></div>
+                            <div class="col-7"></div>
                         </div>
                     </div>
                 </div>
