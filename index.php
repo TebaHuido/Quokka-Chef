@@ -69,7 +69,10 @@ $topcito = $gsent5->fetchALL();
                             </div>
                             <div class="col-7">
                             <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
-                                <p class="card-text"><?php echo $dato["Descripcion"]?></p>
+                                <p class="card-text">Autor: <?php echo $dato["Autor"]?></p>
+                                <p class="card-text">Tipo: <?php echo $dato["Tipo"]?></p>
+                                <p class="card-text"><?php echo $dato["Tiempo"]." ".$dato["Med_tiempo"]?> </p>
+                                <p class="card-text">Porciones: <?php echo $dato["Porciones"]?> personas </p>
                             </div>
                         </div>
                         <br>
