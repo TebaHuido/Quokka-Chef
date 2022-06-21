@@ -16,8 +16,8 @@ $topcito = $gsent5->fetchALL();
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap"
         rel="stylesheet">
-    <link href="assets/dist/css/bootstrap.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="css/style.css">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
     <style>
         h1,
         h2,
@@ -40,7 +40,7 @@ $topcito = $gsent5->fetchALL();
 <body>
     <header class="text-center footer-style">
         <nav class="barra">
-            <a class="navbar-brand d-flex justify-content-start" href="pagina principal.html">
+            <a class="navbar-brand d-flex justify-content-start" href="index.php">
                 <img src="quokka marinero.png" width="250">
             </a>
             <h1>Quokka Chef</h1>
@@ -48,7 +48,7 @@ $topcito = $gsent5->fetchALL();
             <nav class="navegacion" style="text-align:center;">
                 <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
                 <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
-                <a href="contacto.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Contacto</a>
+                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
     </header>
@@ -60,15 +60,20 @@ $topcito = $gsent5->fetchALL();
                     <p> Aprende de los expertos con las mejores recetas y consejos</p>
                 </div>
                 <br>
-                <div >
+                <div>
                     <div class="container">
-                        <div class="row">
-                            <div class="col-5">
-                                <img src="https://imgur.com/Yq6B5z0.png" alt="" style="height:150px; max-width:300px;">
-                                <img src="https://imgur.com/lZIBnLa.png" alt="" style="height:150px; max-width:300px;">
+                        <?php foreach ($topcito as $dato):?>
+                        <div class="row" style="border-style: double; height: 350px;">
+                            <div class="col-5" >
+                                <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="align-items: center;">
                             </div>
-                            <div class="col-7"></div>
+                            <div class="col-7">
+                            <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
+                                <p class="card-text"><?php echo $dato["Descripcion"]?></p>
+                            </div>
                         </div>
+                        <br>
+                        <?php endforeach?>
                     </div>
                 </div>
 

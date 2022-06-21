@@ -6,11 +6,24 @@
     <meta http-equiv='X-UA-Compatible' content='IE=edge'>
     <title>Page Title</title>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/bootstrap.min.css'>
-    <link rel='stylesheet' type='text/css' media='screen' href='/css/style.css'>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap" rel="stylesheet">
+    <link href="./css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/style.css">
+    <style>
+        h1,
+        h2,
+        h3,
+        h4,
+        h5,
+        h6 {
+            font-weight: bold;
+        }
+    </style>
 
     <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
-    <script src='/js/bootstrap.min.js'></script>
+    <script src='./js/bootstrap.min.js'></script>
 
 </head>
 <script>
@@ -52,20 +65,19 @@
 
 </script>
 <body>
-    <header>
-        <footer class="text-center footer-style">
-            <nav class="barra">
-              <a class="navbar-brand d-flex justify-content-start" href="pagina principal.html" >
-                 <img src="quokka2.png" width="250" >
-               </a>
-               <h1>Quokka Chef</h1>
-                <nav class="navegacion" style="text-align:center;">
-                  <a href="nosotros.html" class="boton_p btn btn-outline-warning btn-lg rounded-pill">Recetas</a>
-                  <a href="cursos.html" class="boton_p btn btn-outline-warning btn-lg rounded-pill">Ingreso</a>
-                  <a href="contacto.html" class="boton_p btn btn-outline-warning btn-lg rounded-pill">Contacto</a>
-                </nav>
-              </nav>
-          </footer>
+    <header class="text-center footer-style">
+        <nav class="barra">
+            <a class="navbar-brand d-flex justify-content-start" href="index.php">
+                <img src="quokka marinero.png" width="250">
+            </a>
+            <h1>Quokka Chef</h1>
+
+            <nav class="navegacion" style="text-align:center;">
+                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
+                <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
+            </nav>
+        </nav>
     </header>
 
     <div class="container" style="font-size: 15px">

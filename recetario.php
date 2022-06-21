@@ -26,7 +26,7 @@ include_once'bd.php';
 
     <link rel="stylesheet" href="assets\dist\css\bootstrap.min.css">
     
-    <link rel="stylesheet" href="css/style.css" type="text/css">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap">
     <style>
         h1,h2,h3,h4,h5,h6{
@@ -35,18 +35,20 @@ include_once'bd.php';
     </style>
 </head>
 <body>
+    <header class="text-center footer-style">
+        <nav class="barra">
+            <a class="navbar-brand d-flex justify-content-start" href="index.php">
+                <img src="quokka marinero.png" width="250">
+            </a>
+            <h1>Quokka Chef</h1>
 
-    <nav class="barra text-center ">
-        <a class="navbar-brand d-flex justify-content-start" href="pagina principal.html" >
-            <img src="quokka2.png" width="250" >
-        </a>
-        <h1>Quokka Chef</h1>
-        <nav class="navegacion" style="text-align:center;">
-            <a href="nosotros.html" class="boton_p">Recetas</a>
-            <a href="cursos.html" class="boton_p">Ingreso</a>
-            <a href="contacto.html" class="boton_p">Contacto</a>
+            <nav class="navegacion" style="text-align:center;">
+                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
+                <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
+            </nav>
         </nav>
-    </nav>
+    </header>
 
 
     <h1><?php echo $receta['Nombre']?></h1>
