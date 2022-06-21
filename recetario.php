@@ -33,6 +33,11 @@ include_once'bd.php';
             font-weight: bold;
         }
     </style>
+    <script>
+        function mandar2(){
+            window.location.href = "index.php";
+        }
+    </script>
 </head>
 <body>
     <header class="text-center footer-style">
@@ -40,11 +45,11 @@ include_once'bd.php';
             <a class="navbar-brand d-flex justify-content-start" href="index.php">
                 <img src="quokka marinero.png" width="250">
             </a>
-            <h1>Quokka Chef</h1>
+            <div onclick='mandar2()'><h1>Quokka Chef</h1></div>
 
             <nav class="navegacion" style="text-align:center;">
                 <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
-                <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
                 <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>

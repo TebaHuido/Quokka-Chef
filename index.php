@@ -28,8 +28,7 @@ $topcito = $gsent5->fetchALL();
             font-weight: bold;
         }
     </style>
-        <script>
-        var id
+    <script>
         function mandar(id){
             window.location.href = "recetario.php?ID=" + id;
         }
@@ -50,7 +49,7 @@ $topcito = $gsent5->fetchALL();
 
             <nav class="navegacion" style="text-align:center;">
                 <a href="index.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
-                <a href="cursos.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
                 <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
