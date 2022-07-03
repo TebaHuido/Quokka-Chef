@@ -57,7 +57,7 @@ $topcito = $gsent5->fetchALL();
     <div class="container" style="margin-top: 1rem;">
         <div class="row">
             <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
-                <div class="receta " style="border-style: double">
+                <div class="receta p-3 mb-5 rounded-lg" style="border: tan 5px outset;">
                     <h2> Recetas faciles de Aprender </h2>
                     <p> Aprende de los expertos con las mejores recetas y consejos</p>
                 </div>
@@ -65,11 +65,11 @@ $topcito = $gsent5->fetchALL();
                 <div>
                     <div class="container">
                         <?php foreach ($topcito as $dato):?>
-                        <div class="row" style="border-style: double; height: 350px;">
+                        <div class="row shadow-lg p-3 mb-5 rounded-lg" style="border: 2px tan solid">
                             <div class="col-5" style="display: flex;align-items: center;">
                                 <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="margin: auto;">
                             </div>
-                            <div class="col-7">
+                            <div class="col-7 ">
                             <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
                                 <p class="card-text">Autor: <?php echo $dato["Autor"]?></p>
                                 <p class="card-text">Tipo: <?php echo $dato["Tipo"]?></p>

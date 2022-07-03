@@ -24,10 +24,9 @@ include_once'bd.php';
     
     
 
-    <link rel="stylesheet" href="assets\dist\css\bootstrap.min.css">
-    
-    <link rel="stylesheet" href="./css/style.css" type="text/css">
+    <link rel="stylesheet" href="css\bootstrap.min.css"> 
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap">
+    <link rel="stylesheet" href="./css/style.css" type="text/css">
     <style>
         h1,h2,h3,h4,h5,h6{
             font-weight: bold;
@@ -67,7 +66,7 @@ include_once'bd.php';
     <h3><?php echo "Tipo: ".$receta['Tipo'] ." Tiempo: ".$receta['Tiempo']." ".$receta['Med_tiempo']." Porciones: ".$receta['Porciones']. " Autor: ".$receta['Autor'] ?></h3>
     </div>
     <h2>Ingredientes:</h2>
-    <div class="input-group-prepend">
+    <div class="input-group-prepend ml-5">
 
     <ul class="list-group list-group-flush">
     <?php foreach($ingredientes as $dato):?>
@@ -80,7 +79,7 @@ include_once'bd.php';
 
 
     <?php foreach($intrucciones as $dato):?>
-        <h3><?php echo $dato['orden'],". ", $dato['intruccion'].'<br><br>' ?></h3>
+        <h4><?php echo $dato['orden'],". ", $dato['intruccion'].'<br><br>' ?></h4>
         <?php foreach($imagenes as $dato2){
              echo '<div class="d-flex justify-content-center">';
             if($dato2['orden'] == $dato['orden']){
@@ -93,5 +92,24 @@ include_once'bd.php';
         ?>
         
     <?php endforeach?>
+<div class="m-3" id="disqus_thread"></div>
+<script>
+    /**
+    *  RECOMMENDED CONFIGURATION VARIABLES: EDIT AND UNCOMMENT THE SECTION BELOW TO INSERT DYNAMIC VALUES FROM YOUR PLATFORM OR CMS.
+    *  LEARN WHY DEFINING THESE VARIABLES IS IMPORTANT: https://disqus.com/admin/universalcode/#configuration-variables    */
+    /*
+    var disqus_config = function () {
+    this.page.url = PAGE_URL;  // Replace PAGE_URL with your page's canonical URL variable
+    this.page.identifier = PAGE_IDENTIFIER; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
+    */
+    (function() { // DON'T EDIT BELOW THIS LINE
+    var d = document, s = d.createElement('script');
+    s.src = 'https://quokka-chef.disqus.com/embed.js';
+    s.setAttribute('data-timestamp', +new Date());
+    (d.head || d.body).appendChild(s);
+    })();
+</script>
+<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>
 </html>
