@@ -67,7 +67,7 @@ $topcito = $gsent5->fetchALL();
                         <?php foreach ($topcito as $dato):?>
                         <div class="row shadow-lg p-3 mb-5 rounded-lg" style="border: 2px tan solid">
                             <div class="col-5" style="display: flex;align-items: center;">
-                                <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="margin: auto;">
+                                <img src="<?php echo $dato["Foto"] ?>"  alt="..." style="margin: auto;">
                             </div>
                             <div class="col-7 ">
                             <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
@@ -90,7 +90,7 @@ $topcito = $gsent5->fetchALL();
                 <?php foreach ($topcito as $dato):?>
                     <div onclick='mandar(<?php echo $dato["ID_Receta"] ?> )' style="margin-bottom: 2rem">
                         <div class="card">
-                            <img src="<?php echo $dato["Foto"].".png" ?>" class="card-img-top" alt="...">
+                            <img src="<?php echo $dato["Foto"]?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $dato["Nombre"]?></h5>
                                 <p class="card-text"><?php echo $dato["Descripcion"]?></p>

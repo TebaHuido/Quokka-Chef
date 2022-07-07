@@ -109,7 +109,7 @@ $imagenes = $gsent4->fetchALL();
             echo '<div class="d-flex justify-content-center">';
             if ($dato2['orden'] == $dato['orden']) {
 
-                echo '<img src="' . $dato2['direccion'] . '.png" width="250" style="">';
+                echo '<img src="' . $dato2['direccion'] . '" width="250" style="">';
             }
             echo '</div>';
         }
