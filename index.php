@@ -3,6 +3,9 @@ include_once'bd.php';
 $gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
 $gsent5->execute();
 $topcito = $gsent5->fetchALL();
+$gsent6=$pdo->prepare('SELECT * FROM receta;' );
+$gsent6->execute();
+$recetas = $gsent6->fetchALL();
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -64,7 +67,7 @@ $topcito = $gsent5->fetchALL();
                 <br>
                 <div>
                     <div class="container">
-                        <?php foreach ($topcito as $dato):?>
+                        <?php foreach ($recetas as $dato):?>
                         <div class="row shadow-lg p-3 mb-5 rounded-lg" style="border: 2px tan solid">
                             <div class="col-5" style="display: flex;align-items: center;">
                                 <img src="<?php echo $dato["Foto"] ?>"  alt="..." style="margin: auto;">
