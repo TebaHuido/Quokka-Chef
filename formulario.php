@@ -123,7 +123,7 @@ include_once 'bd.php';
             <nav class="navegacion" style="text-align:center;">
                 <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
                 <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
-                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
+                <a href="formulario.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
     </header>
