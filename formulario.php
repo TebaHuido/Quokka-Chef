@@ -67,55 +67,41 @@ include_once 'bd.php';
             $("input:text").blur(function() {
                 $(this).css("background-color", "#ffff");
             });
-            /*  $("#agregar_paso").click(function() {
-                var textap = "<h4>paso " + y + " </h4>" +
-                    " <textarea name='receta' rows='3' cols='75' placeholder='Pon aqui tu receta' style='resize: none'></textarea>" +
-                    "<input type='file' accept='.jpg,.png,.gif'>" +
-                    "<input type='button' class='boton_p btn btn-outline-warning btn-lg rounded-pill' name='agregar_paso' style='font-size: large' value='agregar paso'>" +
-                    " <textarea class='form-control' name='areaName[]' rows='5' id='comment'></textarea><input type='file' name='fileName[]' class='form-control-file' id='exampleFormControlFile1'><br><button type='button' name='addFile' id='addFile' class='btn btn-success addFile'>Add Another Form</button>";
-                $("#paso").append(textap);
-                y++;
-            });
-            $("input:button[name=agregar_foto]").click(function() {
-
-                $("#foto").append('<h4>paso ' + y + ' </h4>');
-
-            });*/
-
 
             $(document).on('click', '.add', function() {
                 var len = $('.xd').length;
-                var x=len;
-                x++;    
-                $('#dynamic_field').append('<tr class="xd" data-id="' + len + '"><td>' +'<h3>paso ' + x +'</h3>'+
-                    '  <textarea class="" name="areaName[]" rows="3" cols="75" id="comment" placeholder="Pon aqui tu receta" style="resize: none"></textarea>' +
-                    ' <button type="button" name="addFile" id="addFile" class="btn btn-outline-warning btn-lg rounded-pill boton_p addFile">agregar foto</button><button type="button" name="remove" class="btn btn-outline-danger btn-lg rounded-pill boton_p btn_remove_all">Eliminar paso</button></td>' +
+                var x = len;
+                x++;
+                $('#dynamic_field').append('<tr class="xd clas' + len + '" data-id="' + len + '"><td>' + '<h3>paso ' + x + '</h3>' +
+                    '  <textarea class="" name="paso' + x + '" rows="3" cols="60"  placeholder="Pon aqui tu receta" style="resize: none"></textarea>' +
+                    ' <button type="button" name="addFile" id="addFile" class="btn btn-outline-warning btn-lg rounded-pill boton_p addFile">agregar foto</button></td>' +
                     '</tr> ');
             });
-            $(document).on('click', '.submit', function() {
-                $.ajax({
-                    method: "POST",
-                    data: $('#add_name').serialize(),
-                    success: function(data) {
-                        alert(data);
-                        $('#add_name')[0].reset();
-                    }
-                });
-            });
+
             $(document).on('click', '.addFile', function() {
                 var id = $(this).closest('.xd').data('id');
+                var len1 = $('.t' + id).length;
+                if (len1 < 3) {
+                    var elem = '<tr class="t' + id + '"><td><input type="file" name="foto' + id + len1 + '" class="form-control-file" accept=".jpg,.png,.gif"></button>'+
+                    '</td><td><button type="button" name="remove" class="btn btn-outline-danger btn-lg rounded-pill boton_p btn_remove">eliminar</button></td></tr>';
+                    $(elem).insertAfter($(this).closest('tr'));
+                }
 
-                var elem = '<tr class="' + id + '"><td><input type="file" name="fileName[]" class="form-control-file" id="exampleFormControlFile1" accept=".jpg,.png,.gif"></button></td><td><button type="button" name="remove" class="btn btn-outline-danger btn-lg rounded-pill boton_p btn_remove">eliminar</button></td></tr>';
-                $(elem).insertAfter($(this).closest('tr'));
             });
             $(document).on('click', '.btn_remove, .btn_remove_all', function() {
                 if ($(this).hasClass('btn_remove_all')) {
                     var id = $(this).closest('.xd').data('id');
-                    $('tr.' + id).remove();
+                    $('tr.t' + id).remove();
                 }
                 $(this).closest('tr').remove();
             });
-
+            $(".btn_remove,.btn_remove_all").click(function() {
+                var len = $('.xd').length;
+                var z = len;
+                z--;
+                $('tr.clas' + z).remove();
+                $('tr.t' + z).remove();
+            });
 
 
         });
@@ -125,9 +111,6 @@ include_once 'bd.php';
 
 
 <body>
-    <?php echo "hola como estan";
-    ?>
-
     <header class="text-center footer-style">
         <nav class="barra">
             <a class="navbar-brand d-flex justify-content-start" href="index.php">
@@ -151,7 +134,23 @@ include_once 'bd.php';
                     <br>
                     <label for="nombre">nombre de la receta </label>
                     <input class="rounded-pill" id="nombre" placeholder="Nombre" type="text" name="nombre">
-                    <br><br>
+                    <br>
+                    <br>
+                    <h4>descripción de tu receta </h4>
+                    <textarea class="" name="desc'" rows="3" cols="60" id="comment" placeholder="descripción" style="resize: none"></textarea>
+                    <br>
+                    <br>
+                    <label for="tiem">tiempo en minutos:</label>
+                    <input type="number" class="rounded-pill" min="0" placeholder="000" max="999" id="tiem" name="tiem">
+                    <br>
+                    <br>
+                    <label for="porc">Porciones:</label>
+                    <input type="number" class="rounded-pill" min="0" placeholder="00" max="99" id="porc" name="porc">
+                    <br>
+                    <br>
+                    <label for="fotoprin">Foto de la receta:</label>
+                    <input type="file" name="fotoprin'" class="form-control-file" accept=".jpg,.png,.gif">
+                    <br>
                     <label for="tipo">tipo de receta:</label>
                     <select class="rounded-pill" id="tipo" name="tipo">
                         <option value="rapida">rapida</option>
@@ -159,7 +158,7 @@ include_once 'bd.php';
                         <option value="sopa">sopa</option>
                         <option value="entrada">entrada</option>
                     </select>
-                    <br><br>
+                    <br>
                     <label for="ingrediente"> </label>
                     <input class="rounded-pill" id="ingrediente" placeholder="ingrediente" type="text" name="ingrediente">
                     <br><br>
@@ -192,21 +191,16 @@ include_once 'bd.php';
                             </div>
                             <br>
                             <td><button type="button" name="add" id="add" class="btn  add btn-outline-warning btn-lg rounded-pill boton_p">agregar paso</button></td>
+                            <button type="button" name="remove" class="btn btn-outline-danger btn-lg rounded-pill boton_p btn_remove_all">Eliminar ultimo paso</button>
                         </form>
                     </div>
-
-
-
-
 
                 </div>
 
             </div>
         </div>
     </form>
-    <div class="progress">
-  <div class="progress-bar w-75" role="progressbar" aria-valuenow="30" aria-valuemin="0" aria-valuemax="100"></div>
-</div>
+    <br><br>
 </body>
 
 </html>
