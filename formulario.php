@@ -35,18 +35,29 @@ include_once 'bd.php';
         $(document).ready(function() {
 
             $("#btn_agregar").click(function() {
+                var y
+                var z
                 var x = $("input:text[name=ingrediente]").val();
+                var len = $('.trcheck').length;
+                z=len+1;
                 if (x != '') {
-                    $("#tabla_body").append('<tr> <td><input name=micheckbox type= "checkbox"> </td> <td> ' + x + '</td>  </tr>');
+                    $("#tabla_body").append('<tr class="trcheck"> <td><input class="check'+len+'" name="ing" type= "checkbox"> </td> <td> ' + x + '</td> </tr>');
                 }
 
                 $("input:text[name=ingrediente]").each(function() {
                     this.value = ''
                 });
+                $(".cant_ing").val(z);
             });
 
             $("#btn_borrarsel").click(function() {
-                $('#tabla_body tr').has('input[name="micheckbox"]:checked').empty()
+                $('#tabla_body tr').has('.check:checked').each(function() {
+                    $(this).closest('tr').remove();
+                    });
+                var len = $('.trcheck').length;
+
+                $(".cant_ing").val(len);
+    
             });
 
             $("#ocultar_tabla").click(function() {
@@ -76,6 +87,7 @@ include_once 'bd.php';
                     '  <textarea class="" name="paso' + x + '" rows="3" cols="60"  placeholder="Pon aqui tu receta" style="resize: none"></textarea>' +
                     ' <button type="button" name="addFile" id="addFile" class="btn btn-outline-warning btn-lg rounded-pill boton_p addFile">agregar foto</button></td>' +
                     '</tr> ');
+                    $(".cant_paso").val(x);
             });
 
             $(document).on('click', '.addFile', function() {
@@ -94,6 +106,9 @@ include_once 'bd.php';
                     $('tr.t' + id).remove();
                 }
                 $(this).closest('tr').remove();
+                var len = $('.xd').length;
+                var x = len;
+                $(".cant_paso").val(x);
             });
             $(".btn_remove,.btn_remove_all").click(function() {
                 var len = $('.xd').length;
@@ -127,20 +142,24 @@ include_once 'bd.php';
             </nav>
         </nav>
     </header>
-    <form action="">
+    <form action="./subir.php" method="POST">
         <div class="container" style="font-size: 15px">
             <div class="row">
                 <div class="col-md">
                     <br>
-                    <label for="nombre">nombre de la receta </label>
+                    <label for="nombre">Nombre de la receta: </label>
                     <input class="rounded-pill" id="nombre" placeholder="Nombre" type="text" name="nombre">
                     <br>
                     <br>
-                    <h4>descripción de tu receta </h4>
+                    <label for="autor">Nombre del autor: </label>
+                    <input class="rounded-pill" id="autor" placeholder="autor" type="text" name="autor">
+                    <br>
+                    <br>
+                    <h4>Descripción de tu receta: </h4>
                     <textarea class="" name="desc'" rows="3" cols="60" id="comment" placeholder="descripción" style="resize: none"></textarea>
                     <br>
                     <br>
-                    <label for="tiem">tiempo en minutos:</label>
+                    <label for="tiem">Tiempo en minutos:</label>
                     <input type="number" class="rounded-pill" min="0" placeholder="000" max="999" id="tiem" name="tiem">
                     <br>
                     <br>
@@ -151,7 +170,7 @@ include_once 'bd.php';
                     <label for="fotoprin">Foto de la receta:</label>
                     <input type="file" name="fotoprin'" class="form-control-file" accept=".jpg,.png,.gif">
                     <br>
-                    <label for="tipo">tipo de receta:</label>
+                    <label for="tipo">Tipo de receta:</label>
                     <select class="rounded-pill" id="tipo" name="tipo">
                         <option value="rapida">rapida</option>
                         <option value="postre">postre</option>
@@ -169,7 +188,7 @@ include_once 'bd.php';
                         <thead id="tabla_head">
                             <tr>
                                 <td width="150px"> Seleccion </td>
-                                <td width="150px"> ingrediente </td>
+                                <td width="150px"> Ingrediente </td>
                             </tr>
                         </thead>
                         <tbody id="tabla_body">
@@ -190,11 +209,16 @@ include_once 'bd.php';
 
                             </div>
                             <br>
-                            <td><button type="button" name="add" id="add" class="btn  add btn-outline-warning btn-lg rounded-pill boton_p">agregar paso</button></td>
+                            <td><button type="button" name="add" id="add" class="btn  add btn-outline-warning btn-lg rounded-pill boton_p">Agregar paso</button></td>
                             <button type="button" name="remove" class="btn btn-outline-danger btn-lg rounded-pill boton_p btn_remove_all">Eliminar ultimo paso</button>
                         </form>
                     </div>
+                    <div hidden >
+                    <input type="number" class="rounded-pill cant_paso" value="" id="cant_paso" name="cant_paso">
+                    <input type="number" class="rounded-pill cant_ing" value="" id="cant_ing" name="cant_ing">
+                    
 
+                    </div>
                 </div>
 
             </div>
