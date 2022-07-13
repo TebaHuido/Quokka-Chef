@@ -143,6 +143,7 @@ include_once 'bd.php';
         </nav>
     </header>
     <form action="./subir.php" method="POST" enctype="multipart/form-data">
+    <input type="submit" value="Enviar datos">
         <div class="container" style="font-size: 15px">
             <div class="row">
                 <div class="col-md">
@@ -223,7 +224,7 @@ include_once 'bd.php';
 
             </div>
         </div>
-        <p><input type="submit" value="Enviar datos"></p>
+        
     </form>
     <br><br>
 </body>
