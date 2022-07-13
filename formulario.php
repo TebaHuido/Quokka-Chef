@@ -142,7 +142,7 @@ include_once 'bd.php';
             </nav>
         </nav>
     </header>
-    <form action="./subir.php" method="POST">
+    <form action="./subir.php" method="POST" enctype="multipart/form-data">
         <div class="container" style="font-size: 15px">
             <div class="row">
                 <div class="col-md">
@@ -217,12 +217,13 @@ include_once 'bd.php';
                     <input type="number" class="rounded-pill cant_paso" value="" id="cant_paso" name="cant_paso">
                     <input type="number" class="rounded-pill cant_ing" value="" id="cant_ing" name="cant_ing">
                     
-
+                    
                     </div>
                 </div>
 
             </div>
         </div>
+        <p><input type="submit" value="Enviar datos"></p>
     </form>
     <br><br>
 </body>
