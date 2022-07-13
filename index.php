@@ -3,7 +3,7 @@ include_once'bd.php';
 $gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
 $gsent5->execute();
 $topcito = $gsent5->fetchALL();
-$gsent6=$pdo->prepare('SELECT * FROM receta;' );
+$gsent6=$pdo->prepare('SELECT * FROM receta ORDER BY ID_Receta desc;' );
 $gsent6->execute();
 $recetas = $gsent6->fetchALL();
 ?>
