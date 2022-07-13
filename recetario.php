@@ -51,11 +51,15 @@ $imagenes = $gsent4->fetchALL();
             votantes++;
 
             $.ajax({
-               url: "puntuar.php?ID="+<?php echo $_GET['ID'] ?>+"&votantes="+votantes+"&npuntos="+npuntos,
-                success: function(result){
+                url: "puntuar.php?ID=" + <?php echo $_GET['ID'] ?> + "&votantes=" + votantes + "&npuntos=" + npuntos,
+                success: function(result) {
                     $("h5").text(result)
-               }
-           })
+                }
+            })
+            $("#estrellas").html("")
+            for (var i = 0; i < Math.round(npuntos); i++) {
+                $("#estrellas").append('<img src="Icon_Star_clip_art.svg" height="40" width="40" />')
+            }
         }
     </script>
 </head>
@@ -80,7 +84,7 @@ $imagenes = $gsent4->fetchALL();
 
 
     <h1><?php echo $receta['Nombre'] ?></h1>
-    <div class="d-flex justify-content-center">
+    <div id="estrellas" class="d-flex justify-content-center">
         <?php for ($i = 0; $i < round($receta['Puntaje']); $i++) {
             echo '<img
         src="Icon_Star_clip_art.svg"
@@ -123,7 +127,7 @@ $imagenes = $gsent4->fetchALL();
         <img onclick='puntaje(3)' src="Icon_Star_clip_art.svg" height="40" width="40" />
         <img onclick='puntaje(4)' src="Icon_Star_clip_art.svg" height="40" width="40" />
         <img onclick='puntaje(5)' src="Icon_Star_clip_art.svg" height="40" width="40" /></br>
-        
+
     </div>
     <h5 class="d-flex justify-content-center"></h5>
     <div class="m-3" id="disqus_thread"></div>
