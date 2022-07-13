@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 13-07-2022 a las 04:13:44
+-- Tiempo de generación: 13-07-2022 a las 05:10:17
 -- Versión del servidor: 10.4.24-MariaDB
 -- Versión de PHP: 8.1.6
 
@@ -242,8 +242,8 @@ CREATE TABLE `receta` (
   `Nombre` varchar(60) NOT NULL,
   `ID_Receta` int(11) NOT NULL,
   `Tipo` varchar(20) NOT NULL,
-  `Puntaje` float NOT NULL,
-  `cont_puntaje` int(11) NOT NULL DEFAULT 1,
+  `Puntaje` float NOT NULL DEFAULT 0,
+  `cont_puntaje` int(11) NOT NULL DEFAULT 0,
   `Autor` varchar(50) NOT NULL,
   `Tiempo` float NOT NULL,
   `Med_tiempo` varchar(15) NOT NULL,
