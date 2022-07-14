@@ -41,7 +41,8 @@ include_once 'bd.php';
                 var len = $('.trcheck').length;
                 z=len+1;
                 if (x != '') {
-                    $("#tabla_body").append('<tr class="trcheck"> <td><input class="check'+len+'" name="ing" type= "checkbox"> </td> <td> ' + x + '</td> </tr>');
+                    $("#tabla_body").append('<tr class="trcheck"> <td><input class="check'+len+'" name="ing" type= "checkbox"> </td> <td > ' + x + '<input hidden type="text" class="rounded-pill check'+len+'" value="' + x + '" id="check'+len+'" name="check'+len+'"></td>'+
+                    ' </tr>');
                 }
 
                 $("input:text[name=ingrediente]").each(function() {
@@ -84,7 +85,7 @@ include_once 'bd.php';
                 var x = len;
                 x++;
                 $('#dynamic_field').append('<tr class="xd clas' + len + '" data-id="' + len + '"><td>' + '<h3>paso ' + x + '</h3>' +
-                    '  <textarea class="" name="paso' + x + '" rows="3" cols="60"  placeholder="Pon aqui tu receta" style="resize: none"></textarea>' +
+                    '  <textarea class="" name="paso' + len + '" rows="3" cols="60"  placeholder="Pon aqui tu receta" style="resize: none"></textarea>' +
                     ' <button type="button" name="addFile" id="addFile" class="btn btn-outline-warning btn-lg rounded-pill boton_p addFile">agregar foto</button></td>' +
                     '</tr> ');
                     $(".cant_paso").val(x);
@@ -157,7 +158,7 @@ include_once 'bd.php';
                     <br>
                     <br>
                     <h4>Descripción de tu receta: </h4>
-                    <textarea class="" name="desc'" rows="3" cols="60" id="comment" placeholder="descripción" style="resize: none"></textarea>
+                    <textarea class="" name="desc" rows="3" cols="60" id="comment" placeholder="descripción" style="resize: none"></textarea>
                     <br>
                     <br>
                     <label for="tiem">Tiempo en minutos:</label>
@@ -169,7 +170,7 @@ include_once 'bd.php';
                     <br>
                     <br>
                     <label for="fotoprin">Foto de la receta:</label>
-                    <input type="file" name="fotoprin'" class="form-control-file" accept=".jpg,.png,.gif">
+                    <input type="file" name="foto_principal" class="form-control-file" accept=".jpg,.png,.gif">
                     <br>
                     <label for="tipo">Tipo de receta:</label>
                     <select class="rounded-pill" id="tipo" name="tipo">
