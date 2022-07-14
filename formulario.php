@@ -176,6 +176,7 @@ include_once 'bd.php';
                         <option value="postre">postre</option>
                         <option value="sopa">sopa</option>
                         <option value="entrada">entrada</option>
+                        
                     </select>
                     <br>
                     <label for="ingrediente"> </label>
