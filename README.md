@@ -1,18 +1,18 @@
-#Quokka-Chef 
+# Quokka-Chef 
 ***
 
-##Pagina web de recetas 
+## Pagina web de recetas 
 ***
 
 ![logo de quokka](/quokka%20marinero.png)
  
 ***
-#Autores: 
+# Autores: 
 
-*Angelo Coriza Medina
+* Angelo Coriza Medina
 
-*Scarlet Gavia Mondaca
+* Scarlet Gavia Mondaca
 
-*Sebastian Huidobro Rojas
+* Sebastian Huidobro Rojas
 
-*Isabel Condori Gutierrez
+* Isabel Condori Gutierrez
