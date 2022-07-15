@@ -1,10 +1,10 @@
-###Quokka-Chef
-#Pagina web de recetas 
+#Quokka-Chef
+##Pagina web de recetas 
 ![logo de quokka] (/quokka marinero.png)
 #Autores: 
 
-ANGELO CORIZA MEDINA
+##Angelo Coriza Medina
 
-SCARLET GAVIA MONDACA
-SEBASTIÁN HUIDOBRO ROJAS
-ISABEL CONDORI GUTIÉRREZ
+##Scarlet GAVIA MONDACA
+##SEBASTIÁN HUIDOBRO ROJAS
+##ISABEL CONDORI GUTIÉRREZ
