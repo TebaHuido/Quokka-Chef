@@ -16,3 +16,11 @@
 * Sebastian Huidobro Rojas
 
 * Isabel Condori Gutierrez
+***
+# Funcionslidades
+
+* publicar recetas
+* revisar una receta
+* buscar una receta
+* puntuar una receta
+* comentar una receta
