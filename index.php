@@ -66,6 +66,8 @@ else{
             </nav>
         </nav>
     </header>
+    <br>
+    <div class="container">
     <form action="./index.php" method="POST">
         <div class="input-group input-group-lg">
             <input type="text" class="form-control"  name="Busqueda" placeholder="Buscar una receta">
@@ -74,7 +76,9 @@ else{
             </div>
         </div>
     </form>
-        <br><br><br>
+    </div>
+    <div class="container">
+        <br>
         <div class="row">
             <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
                 <div class="receta p-3 mb-5 rounded-lg" style="border: tan 5px outset;">
