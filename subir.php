@@ -3,7 +3,7 @@ include ("bd.php");
 $carpeta_fotopr='./fotos/foto_prin/';
 $carpeta_fotopaso='./fotos/foto_paso/';
 $imgp=$carpeta_fotopr.basename($_FILES["foto_principal"]["name"]);$_FILES["foto_principal"]["name"];
-$gsent=$pdo->prepare("INSERT INTO `receta`(`Descripcion`, `Nombre`, `ID_Receta`, `Tipo`, `Puntaje`, `cont_puntaje`, `Autor`, `Tiempo`, `Med_tiempo`, `Porciones`, `Foto`) VALUES ('".$_POST['desc']."','".$_POST['nombre']."',NULL,'".$_POST['tipo']."',0,0,'".$_POST['autor']."','".$_POST['tiem']."','minuto','".$_POST['porc']."','".$imgp."')");
+$gsent=$pdo->prepare("INSERT INTO `receta`(`Descripcion`, `Nombre`, `ID_Receta`, `Tipo`, `Autor`, `Tiempo`, `Med_tiempo`, `Porciones`, `Foto`) VALUES ('".$_POST['desc']."','".$_POST['nombre']."',NULL,'".$_POST['tipo']."','".$_POST['autor']."','".$_POST['tiem']."','minuto','".$_POST['porc']."','".$imgp."')");
 move_uploaded_file($_FILES["foto_principal"]["tmp_name"],$imgp);
 $gsent->execute();
 $gsent2 = $pdo->prepare('SELECT max(ID_Receta) FROM receta;');
