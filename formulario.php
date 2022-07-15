@@ -143,7 +143,7 @@ include_once 'bd.php';
             </div>
 
             <nav class="navegacion" style="text-align:center;">
-                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
+                <a href="index.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
                 <a href="formulario.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
