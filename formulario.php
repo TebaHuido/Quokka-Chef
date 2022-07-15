@@ -24,14 +24,13 @@ include_once 'bd.php';
             font-weight: bold;
         }
     </style>
-
-    <script src='https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js'></script>
+    <script type="text/javascript" src="js\jquery-3.6.0.slim.min.js"></script>
     <script>
         function mandar2() {
             window.location.href = "index.php";
         }
     </script>
-    <script>
+    <script type="text/javascript">
         $(document).ready(function() {
 
             $("#btn_agregar").click(function() {
@@ -133,6 +132,29 @@ include_once 'bd.php';
 
 
 <body>
+    
+
+    <div class="modal fade" id="myModal">
+        <div class="modal-dialog">
+            <div class="modal-content">
+            
+                <!-- Modal Header -->
+                <div class="modal-header">
+                <h4 class="modal-title">La receta se publico satisfactoriamente</h4>
+                <button type="button" class="close" data-dismiss="modal">×</button>
+                </div>
+                
+                <!-- Modal body -->
+                <div class="modal-body">
+                la receta <?php echo $_GET['id'];?>
+                </div>
+                
+                <!-- Modal footer -->
+
+                
+            </div>
+        </div>
+    </div>
     <header class="text-center footer-style">
         <nav class="barra">
             <a class="navbar-brand d-flex justify-content-start" href="index.php">
@@ -237,6 +259,13 @@ include_once 'bd.php';
 
     </form>
     <br><br>
+    <?php if ( isset($_GET["id"]))
+        echo '<script>$(document).ready(function(){
+            $("#myModal").modal();
+        });
+        </script>;'
+    ?>
+    <script type="text/javascript" src="js\bootstrap.min.js"></script>
 </body>
 
 </html>

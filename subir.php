@@ -32,7 +32,7 @@ $gsent5=$pdo->prepare("INSERT INTO `ingredientes`(`ingredientes`, `ID_Receta`) V
 $gsent5->execute();
 
 }
-
+header('Location: formulario.php?id='.$_POST['nombre']);
 
 
 ?>
