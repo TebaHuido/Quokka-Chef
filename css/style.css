@@ -1,4 +1,4 @@
-:root {
+/**:root {
     --fuenteHeading: 'PT Sans', sans-serif;
     --fuenteParrafos: 'Open Sans', sans-serif;
 
@@ -6,7 +6,7 @@
     --gris: #e1e1e1;
     --blanco: #ffffff;
     --negro: #000000;
-}
+}**/
 html {
     box-sizing: border-box;
     font-size: 62.5%;    
@@ -172,7 +172,7 @@ img {
     text-align: center;
     color: rgb(133, 111, 66);
   }
-  h2,h3,p{
+  h2,h3,h4,p{
     color: rgb(133, 111, 66);
     text-align: center;
   }
@@ -188,4 +188,42 @@ img {
      /* background-color:rgb(241, 228, 199);*/
       padding-top: 80px;
       width: 20%;
+  }
+  #form {
+    width: 250px;
+    margin: 0 auto;
+    height: 50px;
+  }
+  
+  #form p {
+    text-align: center;
+  }
+  
+  #form label {
+    font-size: 20px;
+  }
+  
+  input[type="radio"] {
+    display: none;
+  }
+  
+  label {
+    color: grey;
+  }
+  
+  .clasificacion {
+    direction: rtl;
+    unicode-bidi: bidi-override;
+  }
+  
+  label:hover,
+  label:hover ~ label {
+    color: orange;
+  }
+  
+  input[type="radio"]:checked ~ label {
+    color: orange;
+  }
+  #estpunto{
+    color: orange;
   }

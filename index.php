@@ -3,6 +3,18 @@ include_once'bd.php';
 $gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
 $gsent5->execute();
 $topcito = $gsent5->fetchALL();
+
+if(isset($_POST['Busqueda'])){
+    $gsent6=$pdo->prepare('SELECT * FROM receta where Nombre like "%'.$_POST['Busqueda'].'%"ORDER BY ID_Receta desc;' );
+    $gsent6->execute();
+    $recetas = $gsent6->fetchALL();
+}
+else{
+    $gsent6=$pdo->prepare('SELECT * FROM receta ORDER BY ID_Receta desc;' );
+    $gsent6->execute();
+    $recetas = $gsent6->fetchALL();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -18,6 +30,7 @@ $topcito = $gsent5->fetchALL();
         rel="stylesheet">
     <link href="./css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="./css/style.css">
+    
     <style>
         h1,
         h2,
@@ -26,6 +39,69 @@ $topcito = $gsent5->fetchALL();
         h5,
         h6 {
             font-weight: bold;
+        }
+        /* The sidebar menu */
+        .sidebar {
+            height: 100%; /* 100% Full-height */
+            width: 0; /* 0 width - change this with JavaScript */
+            position: fixed; /* Stay in place */
+            z-index: 1; /* Stay on top */
+            top: 0;
+            left: 0;
+            background-color: #111; /* Black*/
+            overflow-x: hidden; /* Disable horizontal scroll */
+            padding-top: 60px; /* Place content 60px from the top */
+            transition: 0.5s; /* 0.5 second transition effect to slide in the sidebar */
+        }
+        
+        /* The sidebar links */
+        .sidebar a {
+            padding: 8px 8px 8px 32px;
+            text-decoration: none;
+            font-size: 25px;
+            color: #818181;
+            display: block;
+            transition: 0.3s;
+        }
+        
+        /* When you mouse over the navigation links, change their color */
+        .sidebar a:hover {
+            color: #f1f1f1;
+        }
+        
+        /* Position and style the close button (top right corner) */
+        .sidebar .closebtn {
+            position: absolute;
+            top: 0;
+            right: 25px;
+            font-size: 36px;
+            margin-left: 50px;
+        }
+        
+        /* The button used to open the sidebar */
+        .openbtn {
+            font-size: 20px;
+            cursor: pointer;
+            background-color: #111;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+        }
+        
+        .openbtn:hover {
+            background-color: #444;
+        }
+        
+        /* Style page content - use this if you want to push the page content to the right when you open the side navigation */
+        #main {
+            transition: margin-left .5s; /* If you want a transition effect */
+            padding: 20px;
+        }
+        
+        /* On smaller screens, where height is less than 450px, change the style of the sidenav (less padding and a smaller font size) */
+        @media screen and (max-height: 450px) {
+            .sidebar {padding-top: 15px;}
+            .sidebar a {font-size: 18px;}
         }
     </style>
     <script>
@@ -49,27 +125,40 @@ $topcito = $gsent5->fetchALL();
 
             <nav class="navegacion" style="text-align:center;">
                 <a href="index.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
-                <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
-                <a href="formulario.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
+                <a href="formulario.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
     </header>
-    <div class="container" style="margin-top: 1rem;">
+    <form action="./index.php" method="POST">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control"  name="Busqueda" placeholder="Buscar una receta">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+            </div>
+        </div>
+    </form>
+        <br><br><br>
         <div class="row">
             <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
-                <div class="receta " style="border-style: double">
+                <div class="receta p-3 mb-5 rounded-lg" style="border: tan 5px outset;">
                     <h2> Recetas faciles de Aprender </h2>
                     <p> Aprende de los expertos con las mejores recetas y consejos</p>
                 </div>
                 <br>
                 <div>
                     <div class="container">
-                        <?php foreach ($topcito as $dato):?>
-                        <div class="row" style="border-style: double; height: 350px;">
+                    <?php
+                    if(isset($_POST['Busqueda'])){
+                        if(empty($recetas)){
+                            echo"<h1>No se encontraron coincidencias</h1>" ;
+                    };}
+                    ?>
+                        <?php foreach ($recetas as $dato):?>
+                        <div class="row shadow-lg p-3 mb-5 rounded-lg" style="border: 2px tan solid">
                             <div class="col-5" style="display: flex;align-items: center;">
-                                <img src="<?php echo $dato["Foto"].".png" ?>"  alt="..." style="margin: auto;">
+                                <img src="<?php echo $dato["Foto"] ?>"  alt="..." style="margin: auto;">
                             </div>
-                            <div class="col-7">
+                            <div class="col-7 ">
                             <h2 class="card-title"><?php echo $dato["Nombre"]?></h2>
                                 <p class="card-text">Autor: <?php echo $dato["Autor"]?></p>
                                 <p class="card-text">Tipo: <?php echo $dato["Tipo"]?></p>
@@ -90,7 +179,7 @@ $topcito = $gsent5->fetchALL();
                 <?php foreach ($topcito as $dato):?>
                     <div onclick='mandar(<?php echo $dato["ID_Receta"] ?> )' style="margin-bottom: 2rem">
                         <div class="card">
-                            <img src="<?php echo $dato["Foto"].".png" ?>" class="card-img-top" alt="...">
+                            <img src="<?php echo $dato["Foto"]?>" class="card-img-top" alt="...">
                             <div class="card-body">
                                 <h5 class="card-title"><?php echo $dato["Nombre"]?></h5>
                                 <p class="card-text"><?php echo $dato["Descripcion"]?></p>
@@ -113,6 +202,19 @@ $topcito = $gsent5->fetchALL();
             </div>
         </div>
     </div>
+    <script>    
+    /* Set the width of the sidebar to 250px and the left margin of the page content to 250px */
+    function openNav() {
+    document.getElementById("mySidebar").style.width = "250px";
+    document.getElementById("main").style.marginLeft = "250px";
+    }
+
+    /* Set the width of the sidebar to 0 and the left margin of the page content to 0 */
+    function closeNav() {
+    document.getElementById("mySidebar").style.width = "0";
+    document.getElementById("main").style.marginLeft = "0";
+}</script>
+
 </body>
 
 </html>
