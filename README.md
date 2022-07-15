@@ -17,7 +17,7 @@
 
 * Isabel Condori Gutierrez
 ***
-# Funcionslidades
+# Funcionalidades
 
 * publicar recetas
 * revisar una receta
