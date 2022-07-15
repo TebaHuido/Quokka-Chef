@@ -3,9 +3,18 @@ include_once'bd.php';
 $gsent5=$pdo->prepare('SELECT * FROM receta ORDER BY Puntaje desc limit 3;' );
 $gsent5->execute();
 $topcito = $gsent5->fetchALL();
-$gsent6=$pdo->prepare('SELECT * FROM receta ORDER BY ID_Receta desc;' );
-$gsent6->execute();
-$recetas = $gsent6->fetchALL();
+
+if(isset($_POST['Busqueda'])){
+    $gsent6=$pdo->prepare('SELECT * FROM receta where Nombre like "%'.$_POST['Busqueda'].'%"ORDER BY ID_Receta desc;' );
+    $gsent6->execute();
+    $recetas = $gsent6->fetchALL();
+}
+else{
+    $gsent6=$pdo->prepare('SELECT * FROM receta ORDER BY ID_Receta desc;' );
+    $gsent6->execute();
+    $recetas = $gsent6->fetchALL();
+}
+
 ?>
 <!DOCTYPE html>
 <html lang="en">
@@ -120,22 +129,15 @@ $recetas = $gsent6->fetchALL();
             </nav>
         </nav>
     </header>
-        <form action="" method="get">
-            <input type="text" name="Busqueda"> <br>
-            <input type="submit" name="enviar" value="Buscar">
-        </form>
+    <form action="./index.php" method="POST">
+        <div class="input-group input-group-lg">
+            <input type="text" class="form-control"  name="Busqueda" placeholder="Buscar una receta">
+            <div class="input-group-append">
+                <button type="submit" class="btn btn-outline-secondary">Buscar</button>
+            </div>
+        </div>
+    </form>
         <br><br><br>
-        <?php
-            if(isset($_GET['enviar'])){
-                $Busqueda= $_GET['Busqueda'];
-                $gsent = $pdo->prepare("SELECT*FROM receta WHERE Nombre LIKE '%".$Busqueda."%'");
-                $gsent->execute();
-                $intruc = $gsent->fetchALL();
-                foreach($intruc as $dato){
-                    echo $dato['Nombre'].'<br>';
-                }
-            }
-        ?>
         <div class="row">
             <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
                 <div class="receta p-3 mb-5 rounded-lg" style="border: tan 5px outset;">
@@ -145,6 +147,12 @@ $recetas = $gsent6->fetchALL();
                 <br>
                 <div>
                     <div class="container">
+                    <?php
+                    if(isset($_POST['Busqueda'])){
+                        if(empty($recetas)){
+                            echo"<h1>No se encontraron coincidencias</h1>" ;
+                    };}
+                    ?>
                         <?php foreach ($recetas as $dato):?>
                         <div class="row shadow-lg p-3 mb-5 rounded-lg" style="border: 2px tan solid">
                             <div class="col-5" style="display: flex;align-items: center;">
