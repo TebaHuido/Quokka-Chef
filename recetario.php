@@ -21,9 +21,7 @@ $imagenes = $gsent4->fetchALL();
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-
-
+    <title><?php echo $receta['Nombre'] ?></title>
 
     <link rel="stylesheet" href="css\bootstrap.min.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Open+Sans&family=PT+Sans:wght@400;700&display=swap">
@@ -75,8 +73,7 @@ $imagenes = $gsent4->fetchALL();
             </div>
 
             <nav class="navegacion" style="text-align:center;">
-                <a href="nosotros.html" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
-                <a class="boton_p btn-outline-warning btn-lg rounded-pill">Ingreso</a>
+                <a href="index.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Recetas</a>
                 <a href="formulario.php" class="boton_p btn-outline-warning btn-lg rounded-pill">Publicar</a>
             </nav>
         </nav>
@@ -93,9 +90,12 @@ $imagenes = $gsent4->fetchALL();
         } ?></div>
 
     <h3><?php echo "Tipo: " . $receta['Tipo'] . " Tiempo: " . $receta['Tiempo'] . " " . $receta['Med_tiempo'] . " Porciones: " . $receta['Porciones'] . " Autor: " . $receta['Autor'] ?></h3>
-    </div>
-    <h2>Ingredientes:</h2>
-    <div class="input-group-prepend ml-5">
+    </div >
+    <div class="container">
+        <div class="row">
+            <div class="col">
+            <h2 style="text-align: left;">Ingredientes:</h2>
+    <div class=" input-group-prepend ml-5">
 
         <ul class="list-group list-group-flush">
             <?php foreach ($ingredientes as $dato) : ?>
@@ -104,11 +104,20 @@ $imagenes = $gsent4->fetchALL();
         </ul>
 
     </div>
+            </div>
+            <div class="col">
+                <br><br>    
+                <img src="<?php echo $receta['Foto'] ?>" alt="">
+            </div>
+        </div>
+    </div>
+    <br>
     <h2>Pasos a seguir:</h2>
 
-
-    <?php foreach ($intrucciones as $dato) : ?>
-        <h4><?php echo $dato['orden'], ". ", $dato['intruccion'] . '<br><br>' ?></h4>
+<div class="container">
+    
+<?php foreach ($intrucciones as $dato) : ?>
+        <h4 style="text-align: left"><?php echo $dato['orden'], ". ", $dato['intruccion'] . '<br><br>' ?></h4>
         <?php foreach ($imagenes as $dato2) {
             echo '<div class="d-flex justify-content-center">';
             if ($dato2['orden'] == $dato['orden']) {
@@ -118,7 +127,8 @@ $imagenes = $gsent4->fetchALL();
             echo '</div>';
         }
         ?>
-    <?php endforeach ?>
+
+    <?php endforeach ?></div>
     <form>
         <h3>Puntuar Receta:</h3>
   <h1 class="clasificacion">
