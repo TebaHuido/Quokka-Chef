@@ -4,16 +4,15 @@
 ##Pagina web de recetas 
 ***
 
-![logo de quokka](/quokka marinero.png)
-
-![alt text](https://raw.githubusercontent.com/TebaHuido/Quokka-Chef/main/quokka marinero.png)
-
-#Autores: 
+![logo de quokka](/quokka%20marinero.png)
+ 
 ***
+#Autores: 
+
 *Angelo Coriza Medina
 
-*Scarlet Gavia MONDACA
+*Scarlet Gavia Mondaca
 
-*SEBASTIÁN HUIDOBRO ROJAS
+*Sebastian Huidobro Rojas
 
-*ISABEL CONDORI GUTIÉRREZ
+*Isabel Condori Gutierrez
