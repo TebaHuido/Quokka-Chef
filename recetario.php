@@ -120,6 +120,7 @@ $imagenes = $gsent4->fetchALL();
         ?>
     <?php endforeach ?>
     <form>
+        <h3>Puntuar Receta:</h3>
   <h1 class="clasificacion">
     <input id="radio1" type="radio" name="estrellas" value="5">
     <label onclick='puntaje(5)' for="radio1">★</label>
@@ -132,17 +133,7 @@ $imagenes = $gsent4->fetchALL();
     <input id="radio5" type="radio" name="estrellas" value="1">
     <label onclick='puntaje(1)' for="radio5">★</label>
     </h1>
-</form>
-    <div class="d-flex justify-content-center">
-        <h3>Puntuar Receta:</h3>
-        <img onclick='puntaje(1)' src="Icon_Star_clip_art.svg" height="40" width="40" />
-        <img onclick='puntaje(2)' src="Icon_Star_clip_art.svg" height="40" width="40" />
-        <img onclick='puntaje(3)' src="Icon_Star_clip_art.svg" height="40" width="40" />
-        <img onclick='puntaje(4)' src="Icon_Star_clip_art.svg" height="40" width="40" />
-        <img onclick='puntaje(5)' src="Icon_Star_clip_art.svg" height="40" width="40" /></br>
-
-    </div>
-    <h5 class="d-flex justify-content-center"></h5>
+    </form>
     <div class="m-3" id="disqus_thread"></div>
     <script>
         /**
