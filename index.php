@@ -120,16 +120,22 @@ $recetas = $gsent6->fetchALL();
             </nav>
         </nav>
     </header>
-    <div id="mySidebar" class="sidebar">
-        <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
-        <a href="#">About</a>
-        <a href="#">Services</a>
-        <a href="#">Clients</a>
-        <a href="#">Contact</a>
-    </div>
-    <div id="main" class="container" style="margin-top: 1rem;">
-        <button class="openbtn" onclick="openNav()">&#9776; Open Sidebar</button>
-        <h2>Collapsed Sidebar</h2>
+        <form action="" method="get">
+            <input type="text" name="Busqueda"> <br>
+            <input type="submit" name="enviar" value="Buscar">
+        </form>
+        <br><br><br>
+        <?php
+            if(isset($_GET['enviar'])){
+                $Busqueda= $_GET['Busqueda'];
+                $gsent = $pdo->prepare("SELECT*FROM receta WHERE Nombre LIKE '%".$Busqueda."%'");
+                $gsent->execute();
+                $intruc = $gsent->fetchALL();
+                foreach($intruc as $dato){
+                    echo $dato['Nombre'].'<br>';
+                }
+            }
+        ?>
         <div class="row">
             <div class="col-8" style="border-style: none solid none none; border-color: sienna;">
                 <div class="receta p-3 mb-5 rounded-lg" style="border: tan 5px outset;">
