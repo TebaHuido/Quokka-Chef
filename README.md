@@ -1,2 +1,8 @@
 # Quokka-Chef
-Pagina web de recetas
+Pagina web de recetas 
+
+Autores: 
+ANGELO CORIZA MEDINA
+SCARLET GAVIA MONDACA
+SEBASTIÁN HUIDOBRO ROJAS
+ISABEL CONDORI GUTIÉRREZ
