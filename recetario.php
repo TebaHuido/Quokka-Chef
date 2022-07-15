@@ -51,12 +51,12 @@ $imagenes = $gsent4->fetchALL();
             $.ajax({
                 url: "puntuar.php?ID=" + <?php echo $_GET['ID'] ?> + "&votantes=" + votantes + "&npuntos=" + npuntos,
                 success: function(result) {
-                    $("h5").text(result)
                 }
             })
-            $("#estrellas").html("")
-            for (var i = 0; i < Math.round(npuntos); i++) {
-                $("#estrellas").append('<img src="Icon_Star_clip_art.svg" height="40" width="40" />')
+            
+            $("#estrell").html('<h1 id="punto" style="color:orange" style=" display: inline"></h1>') ;
+            for(var i=0;i< Math.round(npuntos) ;i++){
+                $("#punto").append('<h1 id="punto" style="color:orange; display: inline">★</h1>')
             }
         }
     </script>
@@ -81,16 +81,16 @@ $imagenes = $gsent4->fetchALL();
 
 
     <h1><?php echo $receta['Nombre'] ?></h1>
-    <div id="estrellas" class="d-flex justify-content-center">
-        <?php for ($i = 0; $i < round($receta['Puntaje']); $i++) {
-            echo '<img
-        src="Icon_Star_clip_art.svg"
-        height="40"
-        width="40" />';
-        } ?></div>
+    <div id="estrell" class="d-flex justify-content-center">
+        <div style="display: inline">
+            
+            <h1 id="punto" style="color:orange" style=" display: inline"></h1>
+
+        </div>
+    </div >
 
     <h3><?php echo "Tipo: " . $receta['Tipo'] . " Tiempo: " . $receta['Tiempo'] . " " . $receta['Med_tiempo'] . " Porciones: " . $receta['Porciones'] . " Autor: " . $receta['Autor'] ?></h3>
-    </div >
+    
     <div class="container">
         <div class="row">
             <div class="col">
@@ -131,17 +131,17 @@ $imagenes = $gsent4->fetchALL();
     <?php endforeach ?></div>
     <form>
         <h3>Puntuar Receta:</h3>
-  <h1 class="clasificacion">
-    <input id="radio1" type="radio" name="estrellas" value="5">
-    <label onclick='puntaje(5)' for="radio1">★</label>
-    <input id="radio2" type="radio" name="estrellas" value="4">
-    <label onclick='puntaje(4)' for="radio2">★</label>
-    <input id="radio3" type="radio" name="estrellas" value="3">
-    <label onclick='puntaje(3)' for="radio3">★</label>
-    <input id="radio4" type="radio" name="estrellas" value="2">
-    <label onclick='puntaje(2)' for="radio4">★</label>
-    <input id="radio5" type="radio" name="estrellas" value="1">
-    <label onclick='puntaje(1)' for="radio5">★</label>
+    <h1 class="clasificacion">
+        <input id="radio1" type="radio" name="estrellas" value="5">
+        <label onclick='puntaje(5)' for="radio1">★</label>
+        <input id="radio2" type="radio" name="estrellas" value="4">
+        <label onclick='puntaje(4)' for="radio2">★</label>
+        <input id="radio3" type="radio" name="estrellas" value="3">
+        <label onclick='puntaje(3)' for="radio3">★</label>
+        <input id="radio4" type="radio" name="estrellas" value="2">
+        <label onclick='puntaje(2)' for="radio4">★</label>
+        <input id="radio5" type="radio" name="estrellas" value="1">
+        <label onclick='puntaje(1)' for="radio5">★</label>
     </h1>
     </form>
     <div class="m-3" id="disqus_thread"></div>
@@ -162,6 +162,18 @@ $imagenes = $gsent4->fetchALL();
             s.setAttribute('data-timestamp', +new Date());
             (d.head || d.body).appendChild(s);
         })();
+    </script>
+    <script>
+       
+        $(document).ready(function(){
+            $(<?php echo '"'.'est'.round($receta['Puntaje'] ).'"'?>).attr('checked', true);
+            for(var i=0;i< <?php echo round($receta['Puntaje']) ;?>;i++){
+                $("#punto").append('<h1 id="punto" style="color:orange; display: inline">★</h1>')
+            }
+        });
+
+        
+
     </script>
     <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
 </body>

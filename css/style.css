@@ -224,3 +224,6 @@ img {
   input[type="radio"]:checked ~ label {
     color: orange;
   }
+  #estpunto{
+    color: orange;
+  }
