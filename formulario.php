@@ -41,7 +41,7 @@ include_once 'bd.php';
                 var len = $('.trcheck').length;
                 z = len + 1;
                 if (x != '') {
-                    $("#tabla_body").append('<tr class="trcheck"> <td><input class="check' + len + '" name="ing" type= "checkbox"> </td> <td > ' + x + '<input hidden type="text" class="rounded-pill check' + len + '" value="' + x + '" id="check' + len + '" name="check' + len + '"></td>' +
+                    $("#tabla_body").append('<tr class="trcheck"> <td><input class="check" name="ing" type= "checkbox"> </td> <td > ' + x + '<input hidden type="text" class="rounded-pill check' + len + '" value="' + x + '" id="check' + len + '" name="check' + len + '"></td>' +
                         ' </tr>');
                 }
 
@@ -56,9 +56,12 @@ include_once 'bd.php';
                     $(this).closest('tr').remove();
                 });
                 var len = $('.trcheck').length;
-
-                $(".cant_ing").val(len);
-
+                if (len ==0) {
+                    $(".cant_ing").val(''); 
+                }else{
+                    $(".cant_ing").val(len);
+                }
+                
             });
 
             $("#ocultar_tabla").click(function() {
@@ -108,8 +111,11 @@ include_once 'bd.php';
                 }
                 $(this).closest('tr').remove();
                 var len = $('.t_paso').length;
-                var x = len;
-                $(".cant_paso").val(x);
+                if (len ==0) {
+                    $(".cant_paso").val(''); 
+                }else{
+                    $(".cant_paso").val(len);
+                }
             });
             $(".btn_remove,.btn_remove_all").click(function() {
                 var len = $('.t_paso').length;
@@ -176,7 +182,7 @@ include_once 'bd.php';
                         <option value="postre">postre</option>
                         <option value="sopa">sopa</option>
                         <option value="entrada">entrada</option>
-                        
+
                     </select>
                     <br>
                     <label for="ingrediente"> </label>
@@ -214,8 +220,8 @@ include_once 'bd.php';
                         </form>
                     </div>
                     <div hidden>
-                        <input type="number" class="rounded-pill cant_paso" value="" id="cant_paso" name="cant_paso">
-                        <input type="number" class="rounded-pill cant_ing" value="" id="cant_ing" name="cant_ing">
+                        <input required type="number" class="rounded-pill cant_paso"  id="cant_paso" name="cant_paso">
+                        <input required type="number" class="rounded-pill cant_ing"  id="cant_ing" name="cant_ing">
 
 
                     </div>
