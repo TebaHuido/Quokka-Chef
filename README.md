@@ -1,8 +1,10 @@
-#Quokka-Chef
+#Quokka-Chef 
+***
 ##Pagina web de recetas 
+***
 ![logo de quokka] (/quokka marinero.png)
 #Autores: 
-
+***
 ##Angelo Coriza Medina
 
 ##Scarlet GAVIA MONDACA
