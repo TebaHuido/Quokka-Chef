@@ -118,8 +118,21 @@ $imagenes = $gsent4->fetchALL();
             echo '</div>';
         }
         ?>
-
     <?php endforeach ?>
+    <form>
+  <h1 class="clasificacion">
+    <input id="radio1" type="radio" name="estrellas" value="5">
+    <label onclick='puntaje(5)' for="radio1">★</label>
+    <input id="radio2" type="radio" name="estrellas" value="4">
+    <label onclick='puntaje(4)' for="radio2">★</label>
+    <input id="radio3" type="radio" name="estrellas" value="3">
+    <label onclick='puntaje(3)' for="radio3">★</label>
+    <input id="radio4" type="radio" name="estrellas" value="2">
+    <label onclick='puntaje(2)' for="radio4">★</label>
+    <input id="radio5" type="radio" name="estrellas" value="1">
+    <label onclick='puntaje(1)' for="radio5">★</label>
+    </h1>
+</form>
     <div class="d-flex justify-content-center">
         <h3>Puntuar Receta:</h3>
         <img onclick='puntaje(1)' src="Icon_Star_clip_art.svg" height="40" width="40" />
